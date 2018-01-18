@@ -1,6 +1,8 @@
-# Rrc
+# Random Rosetta Code (RRC) Generator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
+
+This just basically gives you a list of programming tasks from [Rosetta Code](http://rosettacode.org/wiki/Category:Programming_Tasks) to choose from or you can be exciting and pick a random one. Your choice.
 
 ## Development server
 

@@ -1,0 +1,9 @@
+<h2>All Exercises</h2>
+<div class="exercise-wrap">
+   <li 
+     *ngFor="let exercise of this.exercises" 
+     class="exercise-item"
+     routerLink="/exercise/{{exercise.id}}" >
+     {{ exercise.name }}
+   </li>
+</div>

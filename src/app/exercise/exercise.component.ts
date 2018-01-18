@@ -1,19 +1,40 @@
 import { Input, Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { 
+   trigger,
+   state,
+   style,
+   transition,
+   animate, keyframes} from '@angular/animations';
 
 import { Exercise } from '../exercise';
 import { ExerciseService } from '../exercise.service';
+declare var jquery:  any;
+declare var $:       any;
 
 @Component({
    selector: 'app-exercise',
    templateUrl: './exercise.component.html',
-   styleUrls: ['./exercise.component.css']
+   styleUrls: ['./exercise.component.css'],
+   animations: [
+      trigger('marked',[
+         state('done', style({
+            content:'DONE'
+         })),
+         state('undone', style({
+            content: 'Mark as done'
+         })),
+         transition('done <=> undone', animate('200ms linear'))
+      ])
+   ]
 })
 export class ExerciseComponent implements OnInit {
 
    @Input() exercise: Exercise;
 
+   state: string= "done";
    length: number;
    constructor(
       private exerciseService: ExerciseService,
@@ -24,11 +45,39 @@ export class ExerciseComponent implements OnInit {
    ngOnInit() {
       this.getExercise();
    }
+   animate(){
+
+      if(this.state==="done"){
+         $("#done").css(
+            { 'background-color': 'green',
+               'color': 'white' }
+         );
+      } else {
+         $("#done").css(
+            {
+               'background-color': 'white',
+               'color': 'green'
+            }
+         );
+      }
+   }
+   save(){
+      this.state = (this.state === "done" ? "undone" : "done");
+      this.exercise.done = !this.exercise.done;
+      this.exerciseService.updateExercise(this.exercise).subscribe(
+         () => this.log(`marked ${this.exercise.name} as done`));
+   }
+   log(message: string): void{
+      console.log(message);
+   }
+
    getExercise(): void{
       const id = +this.route.snapshot.paramMap.get('id');
+      console.log("id; " + id);
       this.exerciseService.getExercise(id)
-         .subscribe(exercise => this.exercise = exercise);
+      .subscribe(exercise => this.exercise = exercise);
       this.length =this.exerciseService.getLastId();
+      console.log('done: ' + this.exercise.done);
    }
    setExercise(id: number){
       this.exerciseService.getExercise(id)

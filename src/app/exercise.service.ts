@@ -21,6 +21,16 @@ export class ExerciseService {
          catchError(this.handleError('getExercises', []))
       );
    }
+   updateExercise(exercise: Exercise): Observable<any>{
+      return this.http.put<Exercise>(
+         this.exerciseUrl, 
+         exercise, 
+         {headers : new HttpHeaders(
+            {'Content-Type': 'application/json'})}
+      ).pipe(
+         catchError(this.handleError<any>(`updateExercise`))
+      );
+   }
    getExercise(id: number): Observable<Exercise>{
       if ( id < 0 ){
          id = EXERCISES.length -1;

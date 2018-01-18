@@ -3,6 +3,7 @@
    <li 
      *ngFor="let exercise of this.exercises" 
      class="exercise-item"
+     [class.done]="exercise.done"
      routerLink="/exercise/{{exercise.id}}" >
      {{ exercise.name }}
    </li>

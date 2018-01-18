@@ -2,6 +2,11 @@
    <h1> {{ exercise.name }} </h1>
    <a href="{{exercise.link}}" target="_blank" class="hover">Yeah why not</a>
    <a (click)="setExercise(this.random())" class="hover">Eh how about another one</a>
+   <a (click)="animate(); save()" 
+      class="hover" 
+      id="done"
+      [class.done]="exercise.done===true"
+      [class.undone]="exercise.done===false"></a>
 
 </div>
 <div class="button-wrap">

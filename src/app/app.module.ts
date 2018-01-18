@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ExerciseComponent } from './exercise/exercise.component';
@@ -25,11 +27,13 @@ import { AboutComponent } from './about/about.component';
    ],
    imports: [
       BrowserModule,
+      FormsModule,
       AppRoutingModule,
       HttpClientModule,
       HttpClientInMemoryWebApiModule.forRoot(
          InMemoryDataService, { dataEncapsulation: false }
-      )
+      ),
+      BrowserAnimationsModule
    ],
    providers: [
       MessageService, 

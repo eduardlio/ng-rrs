@@ -20,17 +20,32 @@ nav a{
    margin-right: 10px;
    text-align: left;
 }
-
 a{
    text-decoration: none;
    color: black;
-   background-color: #eee;
-   font-family: sans-serif;
    transition: .2s all;
    padding: 10px;
+   padding-bottom: 11px;
+   border-bottom: 0;
+   animation-duration: 1.2s;
+   animation-name: godown;
 }
 a:hover{
+   padding-bottom: 10px;
    transition: .2s all;
-   background-color: #ddd;
+   border-bottom: 1px solid black;
+}
+@keyframes godown {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+        -webkit-transform: translateY(-60px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px)
+    }
 }
 

@@ -18,10 +18,16 @@ li{
    color: #000;
    background-color: #eee;
 }
+li:active{
+   outline: none;
+}
 li:hover{
    transition: .2s cubic-bezier(1,0,0,1) all;
    background-color: #3F88C5;
    color: #eee;
 }
+.done{
+   background-color:#F49E4C;
+} 
 
 

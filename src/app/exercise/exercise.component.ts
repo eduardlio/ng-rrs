@@ -73,11 +73,10 @@ export class ExerciseComponent implements OnInit {
 
    getExercise(): void{
       const id = +this.route.snapshot.paramMap.get('id');
-      console.log("id; " + id);
       this.exerciseService.getExercise(id)
       .subscribe(exercise => this.exercise = exercise);
       this.length =this.exerciseService.getLastId();
-      console.log('done: ' + this.exercise.done);
+      this.state = (this.exercise.done ? "done" : "undone");
    }
    setExercise(id: number){
       this.exerciseService.getExercise(id)

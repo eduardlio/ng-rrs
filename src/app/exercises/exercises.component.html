@@ -1,10 +1,12 @@
-<h2>All Exercises</h2>
-<div class="exercise-wrap">
-   <li 
-     *ngFor="let exercise of this.exercises" 
-     class="exercise-item"
-     [class.done]="exercise.done"
-     routerLink="/exercise/{{exercise.id}}" >
-     {{ exercise.name }}
-   </li>
+<div class="general-wrap">
+   <h2>All Exercises</h2>
+   <div class="exercise-wrap">
+      <li 
+        *ngFor="let exercise of this.exercises" 
+        class="exercise-item"
+        [class.done]="exercise.done"
+        routerLink="/exercise/{{exercise.id}}" >
+        {{ exercise.name }}
+      </li>
+   </div>
 </div>

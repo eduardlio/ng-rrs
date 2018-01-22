@@ -34,7 +34,6 @@ export class ExerciseComponent implements OnInit {
 
    @Input() exercise: Exercise;
 
-   state: string= "done";
    length: number;
    constructor(
       private exerciseService: ExerciseService,
@@ -45,28 +44,31 @@ export class ExerciseComponent implements OnInit {
    ngOnInit() {
       this.getExercise();
    }
-   animate(){
-
-      if(this.state==="done"){
-         $("#done").css(
-            { 'background-color': 'green',
-               'color': 'white' }
-         );
+   colorCheck(){
+      console.log(`checking for ${this.exercise.name}`);
+      console.log(`Done is ${this.exercise.done}`)
+      var elem = document.getElementById("done");
+      if(this.exercise.done){
+         elem.classList.add("done");
+         elem.classList.remove("undone");
+         elem.style["background-color"] = "green";
+         elem.style["color"] = "white";
       } else {
-         $("#done").css(
-            {
-               'background-color': 'white',
-               'color': 'green'
-            }
-         );
+         elem.classList.add("undone");
+         elem.classList.remove("done");
+         elem.style["background-color"] = "white";
+         elem.style["color"] = "green";
       }
    }
-   save(){
-      this.state = (this.state === "done" ? "undone" : "done");
+   toggleDone(){
+      // toggle the exercise done status
       this.exercise.done = !this.exercise.done;
+      // toggle the class
+      this.colorCheck();
       this.exerciseService.updateExercise(this.exercise).subscribe(
-         () => this.log(`marked ${this.exercise.name} as done`));
+         () => this.log(`${this.exercise.name} done is now ${this.exercise.done}`));
    }
+
    log(message: string): void{
       console.log(message);
    }
@@ -76,11 +78,12 @@ export class ExerciseComponent implements OnInit {
       this.exerciseService.getExercise(id)
       .subscribe(exercise => this.exercise = exercise);
       this.length =this.exerciseService.getLastId();
-      this.state = (this.exercise.done ? "done" : "undone");
+      this.colorCheck();
    }
    setExercise(id: number){
       this.exerciseService.getExercise(id)
          .subscribe( exercise => this.exercise = exercise);
+      this.colorCheck()
    }
    prev(): number{
       const id = this.exercise.id === 0 ? this.length : this.exercise.id -1; 

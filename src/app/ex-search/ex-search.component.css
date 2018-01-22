@@ -3,6 +3,9 @@
 #search-component{
    text-align: center;
 }
+.general-wrap{
+   height:400px;
+}
 #searchbar{
    width: 200px;
    height: 20px;
@@ -18,10 +21,15 @@ input:focus{
    outline: none;
 }
 ul{
-   height: 400px;
+   height: 300px;
    overflow-y: scroll;
    margin: 0;
    padding: 0;
+}
+@media and screen{
+   ul{
+      height: 400px; 
+   } 
 }
 li{
    text-align: left;

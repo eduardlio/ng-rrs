@@ -9,6 +9,9 @@ h1{
    text-align: center;
    width: 100%;
 }
+.ex-wrap * {
+   display: block;
+}
 a{
    text-decoration: none;
    color: black;
@@ -28,15 +31,37 @@ a:hover{
    display: flex;
    justify-content: space-between;
 }
+
+@media (min-width: 1000px){
+   .link-wrap *{
+      width: auto;
+      display: inline-block;
+      margin-left: 20px;
+   }
+   .link-wrap *:first-child{
+      margin-left: 0px;
+   }
+}
+@media (max-width: 1000px){ 
+   .link-wrap a{
+      display: block;
+      margin: 10px;
+   }
+}
 #done{
    color: #fff;
+   background-color: green;
 }
-#done.done:before{
+#done.done:before, #done{
    content: 'Done!';
+   background-color: green;
+   color: white;
    transition: .2s all;
 }
-#done.undone:before{
+#done.undone:before, #done{
    transition: .2s all;
+   background-color: white;
+   color: green;
    content: 'Mark As Done';
 }
 .hover{

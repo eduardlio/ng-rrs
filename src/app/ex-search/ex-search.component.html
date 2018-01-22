@@ -1,15 +1,17 @@
-<div id="search-component">
-   <h2>Exercise Search</h2>
-   <input 
-      #searchBox 
-      id="searchbar" 
-      (keyup)="search(searchBox.value)"
-      placeholder="search exercise">
+<div class="general-wrap">
+   <div id="search-component">
+      <h2>Exercise Search</h2>
+      <input 
+        #searchBox 
+        id="searchbar" 
+        (keyup)="search(searchBox.value)"
+        placeholder="search exercise">
 
-   <ul class="search-results">
-      <li *ngFor="let exercise of exercises$ | async"
-       routerLink="/exercise/{{ exercise.id }}" >
-            {{ exercise.name }}
-      </li>
-   </ul>
+      <ul class="search-results">
+         <li *ngFor="let exercise of exercises$ | async"
+          routerLink="/exercise/{{ exercise.id }}" >
+          {{ exercise.name }}
+         </li>
+      </ul>
+   </div>
 </div>

@@ -16,6 +16,7 @@ import { ExSearchComponent } from './ex-search/ex-search.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AboutComponent } from './about/about.component';
+import { DoneListComponent } from './done-list/done-list.component';
 
 @NgModule({
    declarations: [
@@ -23,7 +24,8 @@ import { AboutComponent } from './about/about.component';
       ExerciseComponent,
       ExercisesComponent,
       ExSearchComponent,
-      AboutComponent
+      AboutComponent,
+      DoneListComponent
    ],
    imports: [
       BrowserModule,

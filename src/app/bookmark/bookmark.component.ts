@@ -3,14 +3,14 @@ import { Exercise } from '../exercise';
 import { ExerciseService } from '../exercise.service';
 
 @Component({
-   selector: 'app-done-list',
-   templateUrl: './done-list.component.html',
-   styleUrls: ['./done-list.component.css']
+   selector: 'app-bookmark',
+   templateUrl: './bookmark.component.html',
+   styleUrls: ['./bookmark.component.css']
 })
-export class DoneListComponent implements OnInit {
+export class BookmarkComponent implements OnInit {
 
    exercises: Exercise[];
-   constructor(private exerciseService: ExerciseService) { }
+   constructor(private exerciseService:ExerciseService) { }
 
    ngOnInit() {
       this.getExercises();
@@ -18,7 +18,8 @@ export class DoneListComponent implements OnInit {
    getExercises(){
       this.exerciseService.getExercises()
          .subscribe( exercises => 
-            this.exercises = exercises.filter( exercise => exercise.done )
-         );
+            this.exercises = exercises.filter (exercise => exercise.bookmarked)
+         )
    }
+
 }

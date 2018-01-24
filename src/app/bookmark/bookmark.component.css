@@ -1,0 +1,37 @@
+*{
+   font-family: 'Work Sans', sans-serif;
+}
+.general-wrap{
+   height: 400px;
+}
+.exercise-wrap{
+   height: 300px;
+   overflow-y: scroll;
+}
+@media and screen{
+   .exercise-wrap{
+      height: 400px;
+   } 
+} 
+li{
+   border-bottom: 1px solid black;
+   padding: 25px;
+   cursor: pointer;
+   list-style-type: none;
+   position: relative;
+   text-decoration: none;
+   transition: .2s cubic-bezier(1,0,0,1) all;
+   color: #000;
+   background-color: #eee;
+}
+li:active{
+   outline: none;
+}
+li:hover{
+   transition: .2s cubic-bezier(1,0,0,1) all;
+   background-color: #3F88C5;
+   color: #eee;
+}
+.done{
+   background-color:#F49E4C;
+} 

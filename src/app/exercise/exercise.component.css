@@ -12,10 +12,8 @@ h1{
 .ex-wrap * {
    display: block;
 }
-a{
+a, .link-wrap *{
    text-decoration: none;
-   color: black;
-   background-color: white;
    padding: 20px;
    border-radius: 3px;
    transition: all .3s;
@@ -26,6 +24,10 @@ a{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+a:not(.done):not(.undone){
+   color: black;
+   background-color: white;
 }
 a:hover{
    transition: all .3s;
@@ -70,6 +72,18 @@ a:hover{
 .undone{
    background-color: white;
    color: green;
+}
+.material-icons{
+   cursor: pointer;
+   background-color: white;
+}
+.booked:before, .material-icons{
+   content: 'bookmark';
+   transition: .2s all;
+}
+.unbooked:before, .material-icons{
+   content: 'bookmark_border';
+   transition: .2s all;
 }
 .hover{
    cursor: pointer;

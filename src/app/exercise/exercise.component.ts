@@ -55,6 +55,12 @@ export class ExerciseComponent implements OnInit {
          this.state="undone";
       }
    }
+   toggleBookmark(){
+      this.exercise.bookmarked = !this.exercise.bookmarked;
+      this.exerciseService.updateExercise(this.exercise).subscribe(
+         () => this.log(`${this.exercise.name} bookmarked is now: ${this.exercise.bookmarked}`)
+      );
+   }
    toggleDone(){
       // toggle the exercise done status
       this.exercise.done = !this.exercise.done;

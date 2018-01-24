@@ -3,4 +3,5 @@ export class Exercise{
    name: string;
    link: string;
    done: boolean;
+   bookmarked: boolean;
 }

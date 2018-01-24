@@ -17,6 +17,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AboutComponent } from './about/about.component';
 import { DoneListComponent } from './done-list/done-list.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 @NgModule({
    declarations: [
@@ -25,7 +26,8 @@ import { DoneListComponent } from './done-list/done-list.component';
       ExercisesComponent,
       ExSearchComponent,
       AboutComponent,
-      DoneListComponent
+      DoneListComponent,
+      BookmarkComponent
    ],
    imports: [
       BrowserModule,

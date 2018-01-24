@@ -12,6 +12,7 @@ export class ExerciseService {
 
 
    private exerciseUrl= 'api/exercises';
+   private length: number;
    constructor(
       private http: HttpClient
    ) { }
@@ -32,9 +33,10 @@ export class ExerciseService {
       );
    }
    getExercise(id: number): Observable<Exercise>{
+      this.checkLength();
       if ( id < 0 ){
-         id = EXERCISES.length -1;
-      } else if ( id > EXERCISES.length - 1){
+         id = this.length -1;
+      } else if ( id > this.length -1 ){
          id = 0;
       } else {
          id = id;
@@ -55,11 +57,12 @@ export class ExerciseService {
    }
 
    getRandomId(){
-      var rand = Math.floor(Math.random()* EXERCISES.length);
+      var rand = Math.floor(Math.random()* this.length);
       return rand;
    }
    getLastId(): number {
-      return EXERCISES.length -1;
+      this.checkLength();
+      return this.length -1;
    }
    searchExercises(term: string): Observable<Exercise[]>{
       if(!term.trim()){
@@ -69,5 +72,8 @@ export class ExerciseService {
       .pipe(
          catchError(this.handleError<Exercise[]>(`searchExercises`, []))
       );
+   }
+   checkLength(){
+      this.length = EXERCISES.length;
    }
 }

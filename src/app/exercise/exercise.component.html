@@ -1,16 +1,22 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <div class="ex-wrap" *ngIf="exercise">
-   <h1> {{ exercise.name }} </h1>
+   <h1> {{ exercise.name }} 
+   </h1>
+
    <div class="link-wrap">
       <a href="{{exercise.link}}" target="_blank" class="hover">Go to link</a>
       <a (click)="setExercise(this.random())" class="hover">Random</a>
 
-      <a (click)="toggleDone()" 
-         class="hover" 
-         id="done"
+      <a (click)="toggleDone()" class="hover" id="done"
          [class.done]="this.state==='done'"
-         [class.undone]="this.state==='undone'"
-         >
+         [class.undone]="this.state==='undone'" >
       </a>
+         <i class="material-icons hover" 
+            id="bookmarked" 
+            (click)="toggleBookmark()"
+            [class.booked]="exercise.bookmarked"
+            [class.unbooked]="!(exercise.bookmarked)"></i> 
    </div>
 
 </div>

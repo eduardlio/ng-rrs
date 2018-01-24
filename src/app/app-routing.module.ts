@@ -5,6 +5,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { AboutComponent } from './about/about.component';
 import { ExSearchComponent } from './ex-search/ex-search.component';
 import { DoneListComponent } from './done-list/done-list.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 const routes: Routes = [
    { path: '', redirectTo: '/exercises', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
    { path: 'exercise/:id', component: ExerciseComponent },
    { path: 'about', component: AboutComponent },
    { path: 'search', component: ExSearchComponent },
-   { path: 'done', component: DoneListComponent }
+   { path: 'done', component: DoneListComponent },
+   { path: 'bookmarks', component: BookmarkComponent }
 ]
 @NgModule({
    imports: [ RouterModule.forRoot(routes) ],

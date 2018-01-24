@@ -48,21 +48,21 @@ a:hover{
       margin: 10px;
    }
 }
-#done{
-   color: #fff;
-   background-color: green;
-}
-#done.done:before, #done{
+.done:before, .done{
    content: 'Done!';
+   transition: .2s all;
+}
+.done{
    background-color: green;
    color: white;
-   transition: .2s all;
 }
-#done.undone:before, #done{
+.undone:before, .undone{
    transition: .2s all;
+   content: 'Mark As Done';
+}
+.undone{
    background-color: white;
    color: green;
-   content: 'Mark As Done';
 }
 .hover{
    cursor: pointer;

@@ -3,9 +3,12 @@
    <div class="link-wrap">
       <a href="{{exercise.link}}" target="_blank" class="hover">Go to link</a>
       <a (click)="setExercise(this.random())" class="hover">Random</a>
+
       <a (click)="toggleDone()" 
          class="hover" 
          id="done"
+         [class.done]="this.state==='done'"
+         [class.undone]="this.state==='undone'"
          >
       </a>
    </div>
